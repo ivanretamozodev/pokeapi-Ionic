@@ -9,14 +9,15 @@ import { SharedModule } from '../shared/shared.module';
 import { DisplayPageModule } from '../modules/display/display.module';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SharedModule,
-    DisplayPageModule
+   SharedModule,
+   DisplayPageModule
   ],
   declarations: [HomePage]
 })
