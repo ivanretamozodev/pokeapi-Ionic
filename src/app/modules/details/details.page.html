@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>details</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title  class="ion-text-center"> <h2>{{namePokemon | titlecase}} Details</h2></ion-title>   
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid style="max-width: 1400px;"  class="ion-align-content-center">
+    <ion-card class="ion-align-content-center ion-margin">
+    <ion-row>
+
+      <ion-col sizeXs="12" sizeSm="6">
+        <img style="width: 100%;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{idPokemon}}.png">
+      </ion-col>
+
+      <ion-col sizeXs="12" sizeSm="6">
+
+       <ion-grid>
+        <ion-title class="ion-text-center ion-margin-bottom">Tipes of the Pokemon</ion-title>
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="ion-justify-content-center" *ngFor="let type of tipesPokemon">
+            
+            <div class="flex">
+
+              <img class="img" style="width: 95px;" src="/assets/types/{{type.type.name}}.svg">
+              <ion-title class="ion-text-center"><h3>{{type.type.name}}</h3></ion-title>
+            </div>
+
+        
+          </ion-col>
+        </ion-row>
+       </ion-grid>
+
+      </ion-col>
+
+
+
+    </ion-row>
+  </ion-card>
+  </ion-grid>
 
 </ion-content>
+
+

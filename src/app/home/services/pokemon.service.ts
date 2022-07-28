@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators";
-import { PokemonResponse, Pokemon } from '../../core/models/pokemons.model';
+import { PokemonResponse, Pokemon, PokemonSpecie, FlavorTextEntry } from '../../core/models/pokemons.model';
+import { Observable } from 'rxjs';
+import { PokemonTypesResponse, TypeElement } from '../../core/models/pokemonType.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +21,25 @@ export class PokemonService {
     )
   }
 
-  getPokemonSpecies(id: string){
-    return this.pokemonservice.get(`${this.baseUrl}/species/${id}`)
+  getTypesOfPokemos(id : string): Observable<TypeElement[]>{
+    return this.pokemonservice.get<PokemonTypesResponse>(`${this.baseUrl}/pokemon/${id}`).pipe(
+      map(resp => resp.types)
+    )
+  
   }
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
   private transformDataInPokemons(resp : PokemonResponse):Pokemon[]{
 

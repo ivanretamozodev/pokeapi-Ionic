@@ -15,3 +15,27 @@ export interface Pokemon {
     name: string,
     pic: string
 }
+
+//pokemon details interface
+
+export interface PokemonSpecie {
+  
+   
+    color:                  Color;
+    flavor_text_entries:    FlavorTextEntry[];
+    is_legendary:           boolean;
+    is_mythical:            boolean;
+
+    
+}
+
+export interface Color {
+    name: string;
+    url:  string;
+}
+
+export interface FlavorTextEntry {
+    flavor_text: string;
+    language:    Color;
+    version:     Color;
+}

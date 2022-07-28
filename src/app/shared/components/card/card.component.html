@@ -2,20 +2,20 @@
 
   <ion-row class="ion-wrap" >
     <ion-col *ngFor="let pokemon of pokemons | filter:pages:search"  sizeXs="12" sizeSm="6" sizeMd="3" sizeLg="2">
-      <ion-card *ngIf="pokemons">
+      <ion-card>
         
         <ion-card-header>
-          <img [src]="pokemon.pic" alt="">
+          <img [src]="pokemon.pic" [alt]="pokemon.id">
         </ion-card-header>
         
         
         <ion-card-content>
           <ion-card-title class="ion-text-center">{{pokemon.name | titlecase}}</ion-card-title>
-          <ion-button  expand="full" color="tertiary">
+          <ion-button [routerLink]="['/home/details',pokemon.id,pokemon.name]" expand="full" color="tertiary">
             Details
           </ion-button>
         </ion-card-content>
-        <ion-spinner *ngIf="!pokemons" name="crescent"></ion-spinner>
+        
       </ion-card>
   
     </ion-col>

@@ -38,9 +38,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(): void {
-    
   this.pokemonservice.getAllPokemons()
   .subscribe(resp => this.pokemons= resp)
-    
   }
 }

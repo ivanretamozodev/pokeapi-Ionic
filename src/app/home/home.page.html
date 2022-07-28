@@ -4,13 +4,13 @@
     <div>
         <app-menu (onInputSearch)="searchInput( $event)" ></app-menu>
 
-        <!-- <app-display></app-display> -->
         <app-card [search]="search" [pages]="pages" [pokemons]="pokemons"></app-card>
 
         <app-paginator
          (onNextPage)="nextPage( $event )"
          (onPreviousPage)="previousPage($event)"
         ></app-paginator>
+        
     </div>
 
 
