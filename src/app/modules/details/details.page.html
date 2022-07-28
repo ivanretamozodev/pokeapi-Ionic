@@ -26,6 +26,17 @@
               <ion-title class="ion-text-center"><h3>{{type.type.name}}</h3></ion-title>
             </div>
 
+            <ion-list>
+              <ion-item *ngFor="let stat of statsPokemon">
+
+                    <ion-label>{{stat.stat.name}}</ion-label>
+
+           
+                      {{stat.base_stat}}
+                   
+
+              </ion-item>
+            </ion-list>
         
           </ion-col>
         </ion-row>

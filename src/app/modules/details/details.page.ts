@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
 import { TypeElement } from 'src/app/core/models/pokemonType.model';
 import { PokemonService } from 'src/app/home/services/pokemon.service';
-import { FlavorTextEntry, Pokemon } from '../../core/models/pokemons.model';
+import { FlavorTextEntry} from '../../core/models/pokemons.model';
+import { Stat } from '../../core/models/pokemonStats.model';
 
 
 @Component({
@@ -17,6 +17,7 @@ export class DetailsPage implements OnInit {
   namePokemon: string = ""
   idPokemon: string = ""
   tipesPokemon: TypeElement[] = []
+  statsPokemon: Stat[]
   constructor(private http : PokemonService,
               private activatedroutes : ActivatedRoute
     ) { }
@@ -31,6 +32,8 @@ export class DetailsPage implements OnInit {
     this.http.getTypesOfPokemos(this.idPokemon
     ).subscribe(types => this.tipesPokemon = types)
       
+    this.http.getStatsOfPokemons(this.idPokemon).subscribe(stats => this.statsPokemon = stats )
+    
   }
   
 

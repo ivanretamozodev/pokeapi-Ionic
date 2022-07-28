@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators";
-import { PokemonResponse, Pokemon, PokemonSpecie, FlavorTextEntry } from '../../core/models/pokemons.model';
+import { PokemonResponse, Pokemon,} from '../../core/models/pokemons.model';
 import { Observable } from 'rxjs';
 import { PokemonTypesResponse, TypeElement } from '../../core/models/pokemonType.model';
+import { PokemonStatsResponse, Stat } from '../../core/models/pokemonStats.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class PokemonService {
     return this.pokemonservice.get<PokemonResponse>(`${this.baseUrl}/pokemon?limit=1500`)
     .pipe(
       map(this.transformDataInPokemons)
+    )
+  }
+
+  getStatsOfPokemons(id: string): Observable<Stat[]>{
+    return this.pokemonservice.get<PokemonStatsResponse>(`${this.baseUrl}/pokemon/${id}`).pipe(
+      map(resp => resp.stats)
     )
   }
 
