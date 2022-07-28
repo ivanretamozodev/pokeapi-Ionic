@@ -1,15 +1,15 @@
-<ion-toolbar>
+<ion-toolbar color="tertiary">
 
   <ion-grid>
     
     <ion-row class="ion-wrap ion-align-items-center">
 
       <ion-col sizeXs="12" sizeSm="6">
-        <ion-title class="ion-text-center ion-padding">Pokémon App</ion-title>
+        <ion-title class="ion-hide-sm-down">Pokémon Ionic</ion-title>
       </ion-col>
 
       <ion-col sizeXs="12" sizeSm="6">
-        <ion-searchbar placeholder="Search Pokémons" showCancelButton="focus"></ion-searchbar>
+        <ion-searchbar #text (keyup)="searchInput(text.value)" placeholder="Search Pokémons" showCancelButton="focus"></ion-searchbar>
       </ion-col>
     </ion-row>
     

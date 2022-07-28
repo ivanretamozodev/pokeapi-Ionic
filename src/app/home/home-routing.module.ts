@@ -7,6 +7,15 @@ const routes: Routes = [
     path: '',
     component: HomePage,
   }
+  ,
+  {
+    path: 'details',
+    loadChildren: () => import('./../modules/details/details.module').then( m => m.DetailsPageModule)
+  },
+/*   {
+    path: 'display',
+    loadChildren: () => import('./modules/display/display.module').then( m => m.DisplayPageModule)
+  }, */
 ];
 
 @NgModule({

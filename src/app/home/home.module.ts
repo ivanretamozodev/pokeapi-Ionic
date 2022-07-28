@@ -7,6 +7,8 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { DisplayPageModule } from '../modules/display/display.module';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,10 +17,13 @@ import { DisplayPageModule } from '../modules/display/display.module';
     CommonModule,
     FormsModule,
     IonicModule,
+    RouterModule,
     HomePageRoutingModule,
-   SharedModule,
-   DisplayPageModule
+    SharedModule,
   ],
-  declarations: [HomePage]
+  exports:[
+    
+  ],
+  declarations: [HomePage,PaginatorComponent ]
 })
 export class HomePageModule {}

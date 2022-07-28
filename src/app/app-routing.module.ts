@@ -10,14 +10,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
-    path: 'details',
-    loadChildren: () => import('./modules/details/details.module').then( m => m.DetailsPageModule)
-  },
-  {
-    path: 'display',
-    loadChildren: () => import('./modules/display/display.module').then( m => m.DisplayPageModule)
-  },
+  }
 
 ];
 

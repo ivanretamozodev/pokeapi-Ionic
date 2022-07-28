@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -8,13 +8,14 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuComponent implements OnInit {
 
+  @Output() onInputSearch: EventEmitter<string> = new EventEmitter()
+
   constructor( private menu : MenuController ) { }
 
   ngOnInit() {}
 
-  openFirst(){
-    this.menu.enable(true,'first')
-    this.menu.open('first')
+  searchInput(value: string){
+    this.onInputSearch.emit(value)
   }
 
 }

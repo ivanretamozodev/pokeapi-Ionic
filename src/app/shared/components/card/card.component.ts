@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from '../../../core/models/pokemons.model';
 
 @Component({
   selector: 'app-card',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input() pokemons : Pokemon[] = []
+  @Input() pages: number = 0
+  @Input() search: string = ""
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.search);
+    
+  }
 
 }
