@@ -5,6 +5,7 @@ import { PokemonResponse, Pokemon,} from '../../core/models/pokemons.model';
 import { Observable } from 'rxjs';
 import { PokemonTypesResponse, TypeElement } from '../../core/models/pokemonType.model';
 import { PokemonStatsResponse, Stat } from '../../core/models/pokemonStats.model';
+import { RatioPokemon } from '../../core/models/PokemonCapture.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,12 @@ export class PokemonService {
   getStatsOfPokemons(id: string): Observable<Stat[]>{
     return this.pokemonservice.get<PokemonStatsResponse>(`${this.baseUrl}/pokemon/${id}`).pipe(
       map(resp => resp.stats)
+    )
+  }
+  getCaptureRatioOfPokemons(id: string): Observable<number>{
+    return this.pokemonservice.get<RatioPokemon>(`${this.baseUrl}/pokemon-species/${id}`)
+    .pipe(
+      map(resp => resp.capture_rate)
     )
   }
 

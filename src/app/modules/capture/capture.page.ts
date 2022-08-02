@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../home/services/pokemon.service';
+import { RatioPokemon } from '../../core/models/PokemonCapture.model';
 
 @Component({
   selector: 'app-capture',
@@ -16,6 +17,8 @@ export class CapturePage implements OnInit {
 
   isDeciding : boolean = false
   isPlaying : boolean = false
+  ratioCapture : number
+  randomNumber : number
 
   //clases of css
   reduce: string = "reduce"
@@ -32,6 +35,11 @@ export class CapturePage implements OnInit {
       this.pokemonId = id
     })
 
+    this.pokemonService.getCaptureRatioOfPokemons(this.pokemonId).subscribe(ratio => this.ratioCapture = ratio)
+    
+    this.randomNumber = Math.trunc(Math.random()*100 + 1)
+
+    console.log(this.randomNumber);
     
 
   }
@@ -41,7 +49,17 @@ export class CapturePage implements OnInit {
     setInterval(()=>{
       this.isDeciding= true
     },500)
+    this.isCapturated()
   }
 
+  isCapturated(){
+    if (this.randomNumber >= this.ratioCapture ) {
+      console.log("you win");
+      
+    }else{
+      console.log("you lose");
+      
+    }
+  }
   
 }
