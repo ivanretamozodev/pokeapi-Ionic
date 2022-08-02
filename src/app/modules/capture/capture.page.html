@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>capture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div>
+
+   <ion-card>
+
+     <ion-grid style="max-width: 1200px;">
+
+
+
+
+
+       <ion-row class="ion-justify-content-center">
+        <div  *ngIf="!isDeciding" [ngClass]="isPlaying ? reduce : noPlaying">
+
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemonId}}.png" alt="">
+
+        </div>
+        
+        <div [ngClass]="isDeciding? deciding : null" *ngIf="isDeciding">
+
+          <img style="min-width:100%;max-width: 475px;" src="./../../../assets/utilities/pokeball.png" alt="">
+
+        </div>
+        </ion-row>
+        
+  
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="ion-text-center ion-margin">try capture {{pokemonName | titlecase}}</ion-col>
+        </ion-row>
+        
+        <ion-row class="ion-justify-content-center">
+          <ion-button (click)="StartGame()" class="ion-margin" expand="full" color="tertiary">Capture</ion-button>
+        </ion-row>
+        
+      </ion-grid>
+    </ion-card>
+ </div>
+
+</ion-content>

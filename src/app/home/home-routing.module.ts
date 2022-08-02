@@ -12,10 +12,10 @@ const routes: Routes = [
     path: 'details/:id/:name',
     loadChildren: () => import('./../modules/details/details.module').then( m => m.DetailsPageModule)
   },
-/*   {
-    path: 'display',
-    loadChildren: () => import('./modules/display/display.module').then( m => m.DisplayPageModule)
-  }, */
+   {
+    path: 'capture/:id/:name',
+    loadChildren: () => import('./../modules/capture/capture.module').then(m => m.CapturePageModule)
+  },
 ];
 
 @NgModule({
